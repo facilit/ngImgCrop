@@ -37,6 +37,9 @@ crop.factory('cropHost', ['$document', 'cropAreaCircle', 'cropAreaSquare', 'crop
     // Result Image size
     var resImgSize=200;
 
+    // Result image ratio
+    var resImgRatio = 1;
+
     // Result Image type
     var resImgFormat='image/png';
 
@@ -169,9 +172,17 @@ crop.factory('cropHost', ['$document', 'cropAreaCircle', 'cropAreaSquare', 'crop
       temp_canvas = angular.element('<canvas></canvas>')[0];
       temp_ctx = temp_canvas.getContext('2d');
       temp_canvas.width = resImgSize;
-      temp_canvas.height = resImgSize;
+      temp_canvas.height = resImgSize * resImgRatio;
       if(image!==null){
-        temp_ctx.drawImage(image, (theArea.getX()-theArea.getSize()/2)*(image.width/ctx.canvas.width), (theArea.getY()-theArea.getSize()/2)*(image.height/ctx.canvas.height), theArea.getSize()*(image.width/ctx.canvas.width), theArea.getSize()*(image.height/ctx.canvas.height), 0, 0, resImgSize, resImgSize);
+        temp_ctx.drawImage(image, 
+                            (theArea.getX()-theArea.getSize()/2) * (image.width/ctx.canvas.width), 
+                            (theArea.getY()-theArea.getSize() * resImgRatio / 2) * (image.height/ctx.canvas.height), 
+                            theArea.getSize()*(image.width/ctx.canvas.width), 
+                            theArea.getSize()*resImgRatio*(image.height/ctx.canvas.height), 
+                            0, 
+                            0, 
+                            resImgSize, 
+                            resImgSize * resImgRatio);
       }
       if (resImgQuality!==null ){
         return temp_canvas.toDataURL(resImgFormat, resImgQuality);
@@ -240,6 +251,11 @@ crop.factory('cropHost', ['$document', 'cropAreaCircle', 'cropAreaSquare', 'crop
       }
     };
 
+    this.setRatio=function(ratio) {
+      resImgRatio = ratio;
+      theArea.setRatio(resImgRatio);
+    }
+
     this.setMaxDimensions=function(width, height) {
       maxCanvasDims=[width,height];
 
@@ -289,6 +305,13 @@ crop.factory('cropHost', ['$document', 'cropAreaCircle', 'cropAreaSquare', 'crop
         drawScene();
       }
     };
+
+    this.setResultImageSize=function(ratio) {
+      ratio=parseInt(ratio,10);
+      if(!isNaN(ratio)) {
+        resImgRatio = ratio;
+      }
+    }
 
     this.setResultImageSize=function(size) {
       size=parseInt(size,10);

@@ -27,7 +27,7 @@ var today = new Date();
 
 var Config = {
   port: 9000,
-  livereloadPort: 35728,
+  livereloadPort: 35300,
   testPage: 'test/ng-img-crop.html',
   cache: (typeof argv.cache !== 'undefined' ? !!argv.cache : true),
   paths: {

@@ -29,21 +29,23 @@ crop.factory('cropAreaSquare', ['cropArea', function(CropArea) {
 
   CropAreaSquare.prototype._calcSquareCorners=function() {
     var hSize=this._size/2;
+    var hRatioSize = this._size * this._ratio / 2;
     return [
-      [this._x-hSize, this._y-hSize],
-      [this._x+hSize, this._y-hSize],
-      [this._x-hSize, this._y+hSize],
-      [this._x+hSize, this._y+hSize]
+      [this._x-hSize, this._y-hRatioSize],
+      [this._x+hSize, this._y-hRatioSize],
+      [this._x-hSize, this._y+hRatioSize],
+      [this._x+hSize, this._y+hRatioSize]
     ];
   };
 
   CropAreaSquare.prototype._calcSquareDimensions=function() {
     var hSize=this._size/2;
+    var hRatioSize = this._size * this._ratio / 2;
     return {
       left: this._x-hSize,
-      top: this._y-hSize,
+      top: this._y-hRatioSize,
       right: this._x+hSize,
-      bottom: this._y+hSize
+      bottom: this._y+hRatioSize
     };
   };
 
@@ -68,7 +70,10 @@ crop.factory('cropAreaSquare', ['cropArea', function(CropArea) {
 
   CropAreaSquare.prototype._drawArea=function(ctx,centerCoords,size){
     var hSize=size/2;
-    ctx.rect(centerCoords[0]-hSize,centerCoords[1]-hSize,size,size);
+    var hRatioSize = this._size * this._ratio / 2;
+    var width = size;
+    var height = size * this._ratio;
+    ctx.rect(centerCoords[0]-hSize,centerCoords[1]-hRatioSize, width, height);
   };
 
   CropAreaSquare.prototype.draw=function() {

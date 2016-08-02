@@ -54,6 +54,9 @@
     <label>Area Min Size (Size = Width = Height): <input type="text" ng-model="selMinSize" /></label>
   </div>
   <div>
+    <label>Image ratio: <input type="text" ng-model="ratio" /></label>
+  </div>
+  <div>
     <label>Result Image Size (Size = Width = Height): <input type="text" ng-model="resImgSize" /></label>
   </div>
   <div>
@@ -85,6 +88,7 @@
               change-on-fly="changeOnFly"
               area-type="{{type}}"
               area-min-size="selMinSize"
+              ratio="ratio"
               result-image-format="{{resImgFormat}}"
               result-image-quality="resImgQuality"
               result-image-size="resImgSize"
@@ -106,13 +110,14 @@
   <script type="text/javascript">
     angular.module('app', ['ngImgCrop'])
       .controller('Ctrl', function($scope) {
-        $scope.size='small';
-        $scope.type='circle';
+        $scope.size='big';
+        $scope.type='square';
         $scope.imageDataURI='';
         $scope.resImageDataURI='';
         $scope.resImgFormat='image/png';
         $scope.resImgQuality=1;
         $scope.selMinSize=100;
+        $scope.ratio=1;
         $scope.resImgSize=200;
         //$scope.aspectRatio=1.2;
         $scope.onChange=function($dataURI) {

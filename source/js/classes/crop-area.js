@@ -5,6 +5,7 @@ crop.factory('cropArea', ['cropCanvas', function(CropCanvas) {
     this._ctx=ctx;
     this._events=events;
 
+    this._ratio = 1;
     this._minSize=80;
 
     this._cropCanvas=new CropCanvas(ctx);
@@ -47,6 +48,9 @@ crop.factory('cropArea', ['cropCanvas', function(CropCanvas) {
     this._size = Math.max(this._minSize, size);
     this._dontDragOutside();
   };
+  CropArea.prototype.setRatio = function (ratio) {
+    this._ratio = Math.max(0, ratio);
+  };
 
   CropArea.prototype.getMinSize = function () {
     return this._minSize;
@@ -65,15 +69,16 @@ crop.factory('cropArea', ['cropCanvas', function(CropCanvas) {
     if(this._size>h) { this._size=h; }
     if(this._x<this._size/2) { this._x=this._size/2; }
     if(this._x>w-this._size/2) { this._x=w-this._size/2; }
-    if(this._y<this._size/2) { this._y=this._size/2; }
-    if(this._y>h-this._size/2) { this._y=h-this._size/2; }
+    if(this._y<this._size*this._ratio/2) { this._y=this._size*this._ratio/2; }
+    if(this._y>h-this._size*this._ratio/2) { this._y=h-this._size*this._ratio/2; }
   };
 
   CropArea.prototype._drawArea=function() {};
 
   CropArea.prototype.draw=function() {
     // draw crop area
-    this._cropCanvas.drawCropArea(this._image,[this._x,this._y],this._size,this._drawArea);
+    var _drawArea = this._drawArea.bind(this);
+    this._cropCanvas.drawCropArea(this._image,[this._x,this._y],this._size,this._ratio,_drawArea);
   };
 
   CropArea.prototype.processMouseMove=function() {};

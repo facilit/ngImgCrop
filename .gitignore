@@ -42,3 +42,5 @@ Icon
 # Installed Bower/Node modules
 bower_components/
 node_modules/
+project.sublime-project
+project.sublime-workspace
