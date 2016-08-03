@@ -129,13 +129,7 @@ crop.factory('cropAreaSquare', ['cropArea', function(CropArea) {
           break;
       }
       var iFX = (mouseCurX - this._posResizeStartX) * xMulti;
-      var iFY = (mouseCurY - this._posResizeStartY) * yMulti;
-      var iFR;
-      if (iFX > iFY) {
-        iFR = this._posResizeStartSize + iFY;
-      } else {
-        iFR = this._posResizeStartSize + iFX;
-      }
+      var iFR = this._posResizeStartSize + iFX;
       var wasSize = this._size;
       this._size = Math.max(this._minSize, iFR);
       var posModifier = (this._size - wasSize) / 2;

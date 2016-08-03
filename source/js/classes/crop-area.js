@@ -64,19 +64,14 @@ crop.factory('cropArea', ['cropCanvas', function(CropCanvas) {
   /* FUNCTIONS */
   CropArea.prototype._dontDragOutside = function() {
     var h = this._ctx.canvas.height,
-      w = this._ctx.canvas.width,
-      oldSize = this._size;
+      w = this._ctx.canvas.width;
 
-    // console.log('w', w, 'h', h);
-    // if (this._size > w) {
-    //   this._size = w;
-    // }
-    // if (this._size > h) {
-    //   this._size = h;
-    // }
-    // if (oldSize < this._size) {
-    //   console.log('oldSize', oldSize, 'newSize', this._size);
-    // }
+    if (this._size > w) {
+      this._size = w;
+    }
+    if (this._size * this._ratio > h) {
+      this._size = h;
+    }
     if (this._x < this._size / 2) {
       this._x = this._size / 2;
     }
@@ -89,6 +84,7 @@ crop.factory('cropArea', ['cropCanvas', function(CropCanvas) {
     if (this._y > h - this._size * this._ratio / 2) {
       this._y = h - this._size * this._ratio / 2;
     }
+    console.log('size', this._size, 'w', w, 'h', h, 'x', this._x, 'y', this._y);
   };
 
   CropArea.prototype._drawArea = function() {};
