@@ -30,14 +30,12 @@ crop.factory('cropAreaSquare', ['cropArea', function(CropArea) {
   CropAreaSquare.prototype._calcSquareCorners = function() {
     var hSize = this._size / 2;
     var hRatioSize = this._size * this._ratio / 2;
-    var arr = [
+    return [
       [this._x - hSize, this._y - hRatioSize],
       [this._x + hSize, this._y - hRatioSize],
       [this._x - hSize, this._y + hRatioSize],
       [this._x + hSize, this._y + hRatioSize]
     ];
-    console.log('arr', arr);
-    return arr;
   };
 
   CropAreaSquare.prototype._calcSquareDimensions = function() {
