@@ -2,12 +2,12 @@
   "name": "ng-img-crop",
   "version": "0.3.2",
   "authors": [
-    "Alex Kaul <alexkaul@googlemail.com>"
+    "Thiago Andrade <thiago@facilit.com.br>"
   ],
   "description": "Image crop directive for AngularJS",
   "main": [
-    "compile/minified/ng-img-crop.js",
-    "compile/minified/ng-img-crop.css"
+    "compile/minified/tg-img-crop.js",
+    "compile/minified/tg-img-crop.css"
   ],
   "keywords": [
     "angular",
@@ -16,7 +16,7 @@
     "cropper"
   ],
   "license": "MIT",
-  "homepage": "https://github.com/alexk111/ngImgCrop",
+  "homepage": "https://github.com/facilit/ngImgCrop",
   "ignore": [
     "node_modules",
     "bower_components",

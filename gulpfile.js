@@ -81,7 +81,7 @@ gulp.task('scripts', function(){
   return gulp.src([
       Config.paths.source.js + '/init.js',
       Config.paths.source.js + '/classes/*.js',
-      Config.paths.source.js + '/ng-img-crop.js'
+      Config.paths.source.js + '/tg-img-crop.js'
     ])
     .pipe(concat(pkg.name+'.js', {
       separator: '\n\n',

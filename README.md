@@ -4,13 +4,13 @@ Simple Image Crop directive for AngularJS. Enables to crop a circle or a square 
 
 ## Screenshots
 
-![Circle Crop](https://raw.github.com/alexk111/ngImgCrop/master/screenshots/circle_1.jpg "Circle Crop")
+![Circle Crop](https://raw.github.com/facilit/ngImgCrop/master/screenshots/circle_1.jpg "Circle Crop")
 
-![Square Crop](https://raw.github.com/alexk111/ngImgCrop/master/screenshots/square_1.jpg "Square Crop")
+![Square Crop](https://raw.github.com/facilit/ngImgCrop/master/screenshots/square_1.jpg "Square Crop")
 
 ## Live demo
 
-[Live demo on JSFiddle](http://jsfiddle.net/alexk111/rw6q9/)
+[Live demo on JSFiddle](http://jsfiddle.net/facilit/rw6q9/)
 
 ## Requirements
 
@@ -22,7 +22,7 @@ Simple Image Crop directive for AngularJS. Enables to crop a circle or a square 
 ### Download
 
 You have two options to get the files:
-- [Download ngImgCrop](https://github.com/alexk111/ngImgCrop/archive/master.zip) files from GitHub.
+- [Download ngImgCrop](https://github.com/facilit/ngImgCrop/archive/master.zip) files from GitHub.
 - Use Bower to download the files. Just run `bower install ngImgCrop`.
 
 ### Add files
@@ -179,5 +179,5 @@ Assignable angular expression to data-bind to. NgImgCrop puts a data uri of a cr
 
 ## License
 
-See the [LICENSE](https://github.com/alexk111/ngImgCrop/blob/master/LICENSE) file.
+See the [LICENSE](https://github.com/facilit/ngImgCrop/blob/master/LICENSE) file.
 

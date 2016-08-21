@@ -1,4 +1,4 @@
-/* line 1, ../../source/scss/ng-img-crop.scss */
+/* line 1, ../../source/scss/tg-img-crop.scss */
 img-crop {
   width: 100%;
   height: 100%;
@@ -6,7 +6,7 @@ img-crop {
   position: relative;
   overflow: hidden;
 }
-/* line 7, ../../source/scss/ng-img-crop.scss */
+/* line 7, ../../source/scss/tg-img-crop.scss */
 img-crop canvas {
   display: block;
   position: absolute;

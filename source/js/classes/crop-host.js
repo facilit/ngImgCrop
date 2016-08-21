@@ -174,7 +174,6 @@ crop.factory('cropHost', ['$document', 'cropAreaCircle', 'cropAreaSquare', 'crop
       }
     };
 
-
     this.getResultImageDataURI = function() {
       var temp_ctx, temp_canvas;
       temp_canvas = angular.element('<canvas></canvas>')[0];
@@ -312,7 +311,6 @@ crop.factory('cropHost', ['$document', 'cropAreaCircle', 'cropAreaSquare', 'crop
       }
 
       drawScene();
-
     };
 
     this.setAreaMinSize = function(size) {
@@ -321,6 +319,10 @@ crop.factory('cropHost', ['$document', 'cropAreaCircle', 'cropAreaSquare', 'crop
         theArea.setMinSize(size);
         drawScene();
       }
+    };
+
+    this.getBounds = function() {
+      return theArea.getBounds();
     };
 
     this.setResultImageSize = function(ratio) {

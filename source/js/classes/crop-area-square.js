@@ -76,6 +76,34 @@ crop.factory('cropAreaSquare', ['cropArea', function(CropArea) {
     ctx.rect(centerCoords[0] - hSize, centerCoords[1] - hRatioSize, width, height);
   };
 
+  CropAreaSquare.prototype.getBounds = function() {
+
+    var width = this._size;
+    var height = this._size * this._ratio;
+    var hSize = this._size / 2;
+    var hRatioSize = this._size * this._ratio / 2;
+
+    return {
+      x: this._x - hSize,
+      y: this._y - hRatioSize,
+      width: width,
+      height: height,
+    };
+  };
+
+  CropAreaSquare.prototype.getCenter = function() {
+
+    var width = this._size;
+    var height = this._size * this._ratio;
+
+    return {
+      x: this._x,
+      y: this._y,
+      width: width,
+      height: height,
+    };
+  };
+
   CropAreaSquare.prototype.draw = function() {
     CropArea.prototype.draw.apply(this, arguments);
 
