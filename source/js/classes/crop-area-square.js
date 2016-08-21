@@ -78,16 +78,14 @@ crop.factory('cropAreaSquare', ['cropArea', function(CropArea) {
 
   CropAreaSquare.prototype.getBounds = function() {
 
-    var width = this._size;
-    var height = this._size * this._ratio;
     var hSize = this._size / 2;
     var hRatioSize = this._size * this._ratio / 2;
 
     return {
-      x: this._x - hSize,
-      y: this._y - hRatioSize,
-      width: width,
-      height: height,
+      x1: this._x - hSize,
+      y1: this._y - hRatioSize,
+      x2: this._x + hSize,
+      y2: this._y + hRatioSize
     };
   };
 
