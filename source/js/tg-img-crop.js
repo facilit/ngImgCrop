@@ -1,6 +1,6 @@
 'use strict';
 
-crop.directive('imgCrop', ['$timeout', 'cropHost', 'cropPubSub', function($timeout, CropHost, CropPubSub) {
+crop.directive('tgImgCrop', ['$timeout', 'cropHost', 'cropPubSub', function($timeout, CropHost, CropPubSub) {
   return {
     restrict: 'E',
     scope: {
@@ -47,7 +47,7 @@ crop.directive('imgCrop', ['$timeout', 'cropHost', 'cropPubSub', function($timeo
           }
           scope.onChange({
             $dataURI: scope.resultImage,
-            $bounds: cropHost
+            $bounds: cropHost.getBounds()
           });
         }
       };
